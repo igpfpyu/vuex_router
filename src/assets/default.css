@@ -1,0 +1,19 @@
+html, body, div, h1, h2,h3,h4,h5, h6, ul, ul li, ol, ol li dl, dl dd, dl dt, p, span, i, a, strong, img{
+      padding:0; margin:0;
+}
+a, a:hover{
+      color:#333;
+      text-decoration:none;
+}
+ul, ul li{
+      list-style:none;
+}
+img{
+      border:0;
+}
+.pad20{
+      padding:20px;
+}
+.mb20{
+      margin-bottom:20px
+}

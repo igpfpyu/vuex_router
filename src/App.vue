@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-      <div>
-          <button @click="itemClick(user)">首页</button>
-      </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
