@@ -4,14 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+import Network  from './platform/utils/Network/Network'
 import './assets/default.css'
 import 'element-ui/lib/theme-chalk/index.css'
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
+Vue.prototype.$post=Network.NetworkPost;
+Vue.prototype.$fetch=Network.NetworkGet;
 Vue.use(ElementUI);
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})
+    el: '#app',
+    router,
+    components: {App},
+    template: '<App/>'
+});

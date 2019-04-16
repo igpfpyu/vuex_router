@@ -1,8 +1,8 @@
 <template>
     <el-container class="main-page">
-        <el-header>Header</el-header>
+        <el-header>{{value | toUpperCase}}</el-header>
         <el-container>
-            <el-aside width="200px">Aside</el-aside>
+            <el-aside width="200px">{{watchPage}}</el-aside>
             <el-container>
                 <el-main>Main</el-main>
                 <el-footer>Footer</el-footer>
@@ -12,7 +12,28 @@
 </template>
 <script>
     export default {
-        name: "index"
+        name: "index",
+        data(){
+            return {
+                value:'abc',
+                watchPage:"abc"
+            }
+        },
+        filters:{
+            toUpperCase(val){
+                return val.toUpperCase();
+            }
+        },
+        created() {
+            this.$post('/todos/',{
+                params:{
+                    user:'name',
+                    age:'11',
+                }
+            }).then(response=>{
+                console.log(response);
+            })
+        }
     }
 </script>
 <style scoped lang="less">
