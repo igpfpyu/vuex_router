@@ -7,22 +7,23 @@ if(process.env.NODE_ENV==="development"){
 }else{
     baseUrl=""
 }
-//
-const service=axios.create({
-    baseURL:baseUrl,
-    headers:{ 'Content-Type': 'application/json; charset=utf-8' },
-    timeout:50000,
-
-})
-service.interceptors.request.use(config=>{
-    console.log(config);
+// 拦截器
+axios.interceptors.request.use(config=>{
+    config.baseURL=baseUrl;
+    config.withCredentials=true;//允许携带token ,这个是解决跨域产生的相关问题
+    config.timeout=15000;
+    let token=sessionStorage.getItem("assess_token");
+    config.headers={
+        "token":token?token:"",
+        "Content-Type": 'application/x-www-form-urlencoded'
+    }
     return config;
-},error => reject(error));
+},error => Promise.reject(error));
 
 export default {
     NetworkPost(url, params){
         return new Promise((resolve, reject)=>{
-            service.post(url,params).then(response=>{
+            axios.post(url,params).then(response=>{
                 return response;
             }).then(data=>{
                 resolve(data);
@@ -33,7 +34,7 @@ export default {
     },
     NetworkGet(url, params={}) {
         return new Promise((resolve, reject) => {
-            service.get(url, {params}).then(response => {
+            axios.get(url, {params}).then(response => {
                 resolve(response);
             }).catch(err => {
                 reject(err);
