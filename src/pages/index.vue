@@ -1,27 +1,26 @@
 <template>
     <el-container class="main-page">
-        <el-header>{{value | toUpperCase}}</el-header>
+        <el-header>
+            <head-box></head-box>
+        </el-header>
         <el-container>
-            <el-aside width="200px">{{watchPage}}</el-aside>
+            <el-aside width="160px">{{watchPage}}</el-aside>
             <el-container>
                 <el-main>Main</el-main>
-                <el-footer>Footer</el-footer>
+<!--                <el-footer>Footer</el-footer>-->
             </el-container>
         </el-container>
     </el-container>
 </template>
 <script>
+    import HeadBox from "../components/HeadBox/HeadBox";
     export default {
         name: "index",
+        components: {HeadBox},
         data(){
             return {
-                value:'abc',
-                watchPage:"abc"
-            }
-        },
-        filters:{
-            toUpperCase(val){
-                return val.toUpperCase();
+                watchPage:"",
+                value:"",
             }
         },
         created() {
@@ -37,19 +36,19 @@
     }
 </script>
 <style scoped lang="less">
+
     .main-page{
         height:100%;
     }
     .el-header, .el-footer {
-        background-color: #B3C0D1;
+        background-color: rgba(0, 0, 0, 0.6);
 
     }
     .el-aside {
-        background-color: #D3DCE6;
+        background-color: rgba(0, 0, 0, 0.4);
     }
     .el-main {
-        background-color: #E9EEF3;
-        color: #333;
+        color: #d5e8ed;
         text-align: center;
         line-height: 160px;
     }

@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import Network  from './platform/utils/Network/Network'
-import './assets/default.css'
+import './assets/default.less'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.config.productionTip = false;
 Vue.prototype.$post=Network.NetworkPost;

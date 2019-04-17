@@ -24,7 +24,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+    @import "./assets/base";
     html, body,#app{
         width:100%;
         height:100%;
@@ -33,10 +34,14 @@ export default {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        color: #d5e8ed;
     }
-#app {
-  color: #2c3e50;
-}
+    //<!--#125c69, #2c8196 -->
+    #app {
+      color: #d5e8ed;
+        .bgGradient;
+        min-width:1300px;
+    }
     .fade-enter-active, .fade-leave-active {
         transition: opacity .5s;
     }
