@@ -41,7 +41,7 @@
         height:100%;
     }
     .el-header, .el-footer {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.5);
 
     }
     .el-aside {
