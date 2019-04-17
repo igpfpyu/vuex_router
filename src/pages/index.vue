@@ -3,13 +3,8 @@
         <el-header>
             <head-box></head-box>
         </el-header>
-        <el-container>
-            <el-aside width="160px">{{watchPage}}</el-aside>
-            <el-container>
-                <el-main>Main</el-main>
-<!--                <el-footer>Footer</el-footer>-->
-            </el-container>
-        </el-container>
+        <router-view></router-view>
+
     </el-container>
 </template>
 <script>
@@ -40,19 +35,47 @@
     .main-page{
         height:100%;
     }
-    .el-header, .el-footer {
-        background-color: rgba(0, 0, 0, 0.5);
 
-    }
-    .el-aside {
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-    .el-main {
-        color: #d5e8ed;
-        text-align: center;
-        line-height: 160px;
-    }
+
     body > .el-container {
         margin-bottom: 40px;
+    }
+</style>
+<style lang="less">
+    @import "../assets/base";
+    .main-page{
+        .el-header, .el-footer {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .el-aside {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .el-menu.el-menu--horizontal{
+            border:0px;
+        }
+        .el-menu{
+            background-color:transparent;
+            border:0;
+        }
+        .el-menu--horizontal>.el-menu-item,
+        .el-menu--horizontal>.el-submenu:focus .el-submenu__title,
+        .el-menu--horizontal>.el-submenu:hover .el-submenu__title,
+        .el-menu--horizontal>.el-submenu .el-submenu__title{
+            color:@fontColor;
+            border:0;
+        }
+        .el-menu--horizontal>.el-menu-item:not(.is-disabled):focus,
+        .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover,
+        .el-menu--horizontal>.el-submenu .el-submenu__title:hover,
+        .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+        .el-menu--horizontal .el-menu-item:not(.is-disabled):hover,
+        .el-menu--horizontal > .is-active{
+            color:#fff;
+            background-color:rgba(0, 0, 0, 0.4);
+        }
+
+        .el-submenu__title i{
+            color:@fontColor;
+        }
     }
 </style>

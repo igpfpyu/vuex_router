@@ -58,12 +58,12 @@
         flex-direction: row;
         align-items:center;
         .logo{
-            width:140px;
+            width:160px;
         }
     }
     .user{
         a{
-            font-size:14px;
+            font-size:12px;
             cursor: pointer;
             &:hover{
                 color:@fontColor

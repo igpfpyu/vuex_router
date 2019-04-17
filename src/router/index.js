@@ -4,9 +4,14 @@ import Error from '@/pages/Error/Error'
 import Login from '@/pages/Login/Login'
 import Index from '@/pages/index'
 
+//首页
+import Home from '../pages/Home/Home'
 Vue.use(Router)
 const routes=[
-    {path: '/', name: 'index', component: Index},
+    {path: '/', name: 'index', redirect:"/index", component: Index, children:[
+            {path:'/index', name:'home',component:Home}
+        ]
+    },
     {path:"/login", name:'login', component:Login},
     {path:'*', redirect:"/"}
 ]
