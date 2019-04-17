@@ -21,7 +21,10 @@
                 </el-menu>
             </div>
         </div>
-        <div class="user">user</div>
+        <div class="user">
+            <a>请登陆</a>
+            <a>免费注册</a>
+        </div>
     </div>
 </template>
 
@@ -42,6 +45,7 @@
 </script>
 
 <style scoped lang="less">
+    @import "../../assets/base";
 .head-box{
     width:100%;
     height:60px;
@@ -58,7 +62,13 @@
         }
     }
     .user{
-
+        a{
+            font-size:14px;
+            cursor: pointer;
+            &:hover{
+                color:@fontColor
+            }
+        }
     }
 }
 </style>
