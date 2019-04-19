@@ -4,7 +4,6 @@
             <head-box></head-box>
         </el-header>
         <router-view></router-view>
-
     </el-container>
 </template>
 <script>
@@ -19,24 +18,21 @@
             }
         },
         created() {
-            this.$post('/todos/',{
-                params:{
-                    user:'name',
-                    age:'11',
-                }
-            }).then(response=>{
-                console.log(response);
-            })
+            // this.$post('/todos',{
+            //     params:{
+            //         user:'name',
+            //         age:'11',
+            //     }
+            // }).then(response=>{
+            //     console.log(response);
+            // })
         }
     }
 </script>
 <style scoped lang="less">
-
     .main-page{
         height:100%;
     }
-
-
     body > .el-container {
         margin-bottom: 40px;
     }

@@ -2,13 +2,13 @@
     <el-aside class="left-sub-menu" width="180px">
         <el-menu :default-active="activeIndex" router
                  @select="handleSelect">
-            <el-submenu :index="menu.url" v-for="(menu, index) in suMenus" :key="index">
+            <el-menu-item v-if="!isChildType" v-for="(submenu, subIndex) in suMenus" :index="submenu.url" :key="subIndex">{{submenu.name}}</el-menu-item>
+            <el-submenu v-else :index="menu.url" v-for="(menu, index) in suMenus" :key="index">
                 <template slot="title">{{menu.name}}</template>
-                <el-menu-item  v-for="(submenu, subIndex) in menu.childs" :index="submenu.url" :key="subIndex">{{submenu.name}}</el-menu-item>
             </el-submenu>
         </el-menu>
         <div class="addmenu-box">
-            <el-button type="primary" size="mini">添加</el-button>
+            <el-button type="primary" @click="addFastNav" size="mini">添加快捷导航</el-button>
         </div>
     </el-aside>
 
@@ -20,16 +20,24 @@
         props:{
             suMenus:{
                 type:Array,
+            },
+
+            isChildType:{   //是否有子级导航 false ：没有， true : 有，
+                type:Boolean,
+                // default:true,
             }
         },
         data(){
             return {
-                activeIndex:"1"
+                activeIndex:"/"
             }
         },
         methods:{
             handleSelect(val){
                 this.$emit("handleSelect", val)
+            },
+            addFastNav(){
+                this.$emit('addFastNav');
             }
         }
     }
@@ -59,8 +67,17 @@
             background-color:rgba(0, 0, 0, 0.4);
         }
         .el-menu-item{
-            background-color:rgba(0, 0, 0, 0.2);
+            /*background-color:rgba(0, 0, 0, 0.2);*/
             margin-bottom:1px;
+        }
+        .el-menu-item:not(.is-disabled):focus,
+        .el-menu-item:not(.is-disabled):hover,
+        .el-submenu .el-submenu__title:hover,
+        .el-menu-item:not(.is-disabled):focus,
+        .el-menu-item:not(.is-disabled):hover,
+        .is-active{
+            color:#fff;
+            background-color:rgba(0, 0, 0, 0.3);
         }
         .el-menu{
             background-color:transparent;

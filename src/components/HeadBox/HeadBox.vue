@@ -4,20 +4,19 @@
             <div class="logo">logo</div>
             <div class="nav">
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-                    <el-menu-item index="1">处理中心</el-menu-item>
-                    <el-submenu index="2">
-                        <template slot="title">我的工作台</template>
-                        <el-menu-item index="2-1">选项1</el-menu-item>
-                        <el-menu-item index="2-2">选项2</el-menu-item>
-                        <el-menu-item index="2-3">选项3</el-menu-item>
-                        <el-submenu index="2-4">
-                            <template slot="title">选项4</template>
-                            <el-menu-item index="2-4-1">选项1</el-menu-item>
-                            <el-menu-item index="2-4-2">选项2</el-menu-item>
-                            <el-menu-item index="2-4-3">选项3</el-menu-item>
-                        </el-submenu>
-                    </el-submenu>
-                    <el-menu-item index="4">订单管理</el-menu-item>
+                    <el-menu-item v-for="(nav, index) in navs" :index="nav.url" :key="index">{{nav.name}}</el-menu-item>
+                    <!--                    <el-submenu index="2">-->
+<!--                        <template slot="title">我的工作台</template>-->
+<!--                        <el-menu-item index="2-1">选项1</el-menu-item>-->
+<!--                        <el-menu-item index="2-2">选项2</el-menu-item>-->
+<!--                        <el-menu-item index="2-3">选项3</el-menu-item>-->
+<!--                        <el-submenu index="2-4">-->
+<!--                            <template slot="title">选项4</template>-->
+<!--                            <el-menu-item index="2-4-1">选项1</el-menu-item>-->
+<!--                            <el-menu-item index="2-4-2">选项2</el-menu-item>-->
+<!--                            <el-menu-item index="2-4-3">选项3</el-menu-item>-->
+<!--                        </el-submenu>-->
+<!--                    </el-submenu>-->
                 </el-menu>
             </div>
         </div>
@@ -27,19 +26,23 @@
         </div>
     </div>
 </template>
-
 <script>
+    import Nav from '../../assets/navigation';
     export default {
         name: "HeadBox",
         data(){
             return {
-                activeIndex:"1"
+                navs:Nav,
+                activeIndex:"/"
             }
         },
         methods:{
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
             }
+        },
+        created() {
+            console.log(Nav);
         }
     }
 </script>
@@ -48,6 +51,7 @@
     @import "../../assets/base";
 .head-box{
     width:100%;
+    min-width:1300px;
     height:60px;
     display: flex;
     justify-content:space-between;

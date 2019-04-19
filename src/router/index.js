@@ -6,10 +6,17 @@ import Index from '@/pages/index'
 
 //首页
 import Home from '../pages/Home/Home'
+import IndexItem from '@/pages/IndexItem/IndexItem'
+
+//在线课程
+import Lesson from '../pages/Lesson/Lesson/Lesson'
 Vue.use(Router)
 const routes=[
     {path: '/', name: 'index', redirect:"/index", component: Index, children:[
-            {path:'/index', name:'home',component:Home}
+            {path:'/index', name:'home',component:Home, children:[
+                    {path:"/index", name:"homeitem", component:IndexItem},
+                    {path:"/lesson", name:'lesson',component:Lesson},
+                ]}
         ]
     },
     {path:"/login", name:'login', component:Login},
