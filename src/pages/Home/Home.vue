@@ -12,10 +12,18 @@
                 title="添加快捷菜单"
                 :visible.sync="dialogVisible"
                 width="40%"
-
                 :before-close="handleClose">
             <div>
-                <el-transfer :titles="titles" v-model="value" :data="menus"></el-transfer>
+                <el-transfer :titles="titles"
+                             v-model="inMenus"
+                             :data="menus"
+                             :props="{
+                                  key: 'id',
+                                  label: 'name'
+                                }"
+                             @change="rightItemChange"
+                             @left-check-change="leftCheckChange"
+                ></el-transfer>
             </div>
         </el-dialog>
     </el-container>
@@ -32,15 +40,16 @@
                 const menes = [];
                 for (let i =0; i < Menus.length; i++) {
                     menes.push({
-                        key:"0-"+i,
-                        label: Menus[i].name,
+                        id:Menus[i].id,
+                        name: Menus[i].name,
                         disabled:true,
                     });
-                    if(Menus[i].childs.length>1){
+                    if(Menus[i].childs.length>=1){
                         for( let j=0; j<Menus[i].childs.length; j++){
                             menes.push({
-                                key: (i+1)+"-"+j,
-                                label:Menus[i].childs[j].name,
+                                id:Menus[i].childs[j].id,
+                                name:Menus[i].childs[j].name,
+                                url:Menus[i].childs[j].url,
                                 disabled:false,
                             });
                         }
@@ -52,11 +61,18 @@
                 titles:['全导航','快捷导航'],
                 activeIndex:"1",
                 dialogVisible:false,
-                suMenus:[
-                    {id:"1001", name:'在线课程', url:'/'},
-                ],
-                value:["1-0"],
+                suMenus:[],
+                inMenus:[1011],
                 menus:generateData()
+            }
+        },
+        created(){
+            for(let i=0; i<this.inMenus.length; i++){
+                for(let j=0; j<this.menus.length; j++){
+                    if(this.inMenus[i]===this.menus[j].id){
+                        this.suMenus.push(this.menus[j]);
+                    }
+                }
             }
         },
         methods:{
@@ -68,12 +84,39 @@
             },
             //关闭弹窗
             handleClose(done){
-                console.log(done);
-                this.$confirm('确认关闭？')
-                    .then(_ => {
-                        done();
-                    })
-                    .catch(_ => {});
+                done();
+                // this.$confirm('确认关闭？')
+                //     .then(_ => {
+                //         done();
+                //     })
+                //     .catch(_ => {});
+            },
+            rightItemChange(value, direction, movedKeys) {
+
+                if (direction === "right") {
+                    let newItem = [];
+                    for (let i = 0; i < movedKeys.length; i++) {
+                        for (let j = 0; j < this.menus.length; j++) {
+                            if (movedKeys[i] === this.menus[j].id) {
+                                newItem.push(this.menus[j]);
+                            }
+                        }
+                    }
+                    this.suMenus = this.suMenus.concat(newItem);
+                } else if (direction === "left") {
+                    console.log(JSON.stringify(movedKeys));
+                    console.log(JSON.stringify(this.suMenus));
+                    for (let i = 0; i < movedKeys.length; i++) {
+                        for (let j = 0; j < this.suMenus.length; j++) {
+                            if (movedKeys[i] === this.suMenus[j].id) {
+                                this.suMenus.splice(j,1);
+                            }
+                        }
+                    }
+
+                }
+            },
+            leftCheckChange(value, direction, movedKeys){
             }
         }
     }
