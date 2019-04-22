@@ -3,9 +3,9 @@
         <div class="left-menu">
             <div class="logo">logo</div>
             <div class="nav">
-                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-menu-item v-for="(nav, index) in navs" :index="nav.url" :key="index">{{nav.name}}</el-menu-item>
-                    <!--                    <el-submenu index="2">-->
+<!--                    <el-submenu index="2">-->
 <!--                        <template slot="title">我的工作台</template>-->
 <!--                        <el-menu-item index="2-1">选项1</el-menu-item>-->
 <!--                        <el-menu-item index="2-2">选项2</el-menu-item>-->
@@ -38,7 +38,8 @@
         },
         methods:{
             handleSelect(key, keyPath) {
-                console.log(key, keyPath);
+                console.log(key);
+                console.log(keyPath);
             }
         },
         created() {

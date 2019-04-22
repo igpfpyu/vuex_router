@@ -28,7 +28,6 @@
         </el-dialog>
     </el-container>
 </template>
-
 <script>
     import ChildMenu from "../../components/ChildMenu/ChildMenu"
     import Menus from '../../assets/navigation'
@@ -62,7 +61,7 @@
                 activeIndex:"1",
                 dialogVisible:false,
                 suMenus:[],
-                inMenus:[1011],
+                inMenus:["1011"],
                 menus:generateData()
             }
         },
@@ -92,7 +91,6 @@
                 //     .catch(_ => {});
             },
             rightItemChange(value, direction, movedKeys) {
-
                 if (direction === "right") {
                     let newItem = [];
                     for (let i = 0; i < movedKeys.length; i++) {
@@ -103,9 +101,7 @@
                         }
                     }
                     this.suMenus = this.suMenus.concat(newItem);
-                } else if (direction === "left") {
-                    console.log(JSON.stringify(movedKeys));
-                    console.log(JSON.stringify(this.suMenus));
+                } else if (direction === "left"){
                     for (let i = 0; i < movedKeys.length; i++) {
                         for (let j = 0; j < this.suMenus.length; j++) {
                             if (movedKeys[i] === this.suMenus[j].id) {
