@@ -10,17 +10,19 @@ import IndexItem from '@/pages/IndexItem/IndexItem'
 
 //在线课程
 import Lesson from '../pages/Lesson/Lesson/Lesson'
+import LessonList from '../pages/Lesson/LessonList/LessonList'
 Vue.use(Router)
 const routes=[
-    {path: '/', name: 'index',  component: Index, children:[
+    {path: '/',  component: Index, children:[
             {
-                path:'/', name:'home',component:Home, children:[
-                    {path:"/", name:"homeitem", component:IndexItem},
-
+                path:'/', component:Home, children:[
+                    {
+                        path:"/", name:"homeitem", component:IndexItem
+                    },
                 ]
             },{
                 path: "/lesson", name: 'lesson', component: Lesson, children: [
-                    {path: "/lesson", name: "lessonItem", component: Lesson},
+                    {path: "/lesson", name: "lessonItem", component: LessonList},
                 ]
             }
         ]

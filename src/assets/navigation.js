@@ -8,7 +8,7 @@ export default [
             {id:"1021", name:'课程列表', url:'/lesson'},
         ]
     }, {
-        url:"/facem", name:"面授培训",id:1030, childs:[
+        url:"/facem", name:"面授培训", id:1030, childs:[
 
         ]
     }, {

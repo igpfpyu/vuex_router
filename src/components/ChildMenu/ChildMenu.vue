@@ -1,13 +1,18 @@
 <template>
     <el-aside class="left-sub-menu" width="180px">
-        <el-menu :default-active="activeIndex" router
+        <el-menu :default-active="$route.path" router
                  @select="handleSelect">
-            <el-menu-item v-if="!isChildType" v-for="(submenu, subIndex) in suMenus" :index="submenu.url" :key="subIndex">{{submenu.name}}</el-menu-item>
-<!--            <el-submenu :index="menu.url" v-for="(menu, index) in suMenus" :key="index" :id="menu.id">-->
-<!--                <template slot="title">{{menu.name}}</template>-->
-<!--            </el-submenu>-->
+            <el-menu-item
+                    v-if="!isChildType"
+                    v-for="(submenu, subIndex) in suMenus"
+                    :index="submenu.url"
+                    :key="subIndex"
+            >{{submenu.name}}</el-menu-item>
+            <el-submenu v-else :index="menu.url" v-for="(menu, index) in suMenus" :key="index" :id="menu.id">
+                <template slot="title">{{menu.name}}</template>
+            </el-submenu>
         </el-menu>
-        <div class="addmenu-box">
+        <div v-if="isAdd" class="addmenu-box">
             <el-button type="primary" @click="addFastNav" size="mini">添加快捷导航</el-button>
         </div>
     </el-aside>
@@ -29,11 +34,12 @@
         },
         data(){
             return {
-                activeIndex:"/"
+                activeIndex:this.$route.path,
+                isAdd:false,
             }
         },
         created(){
-          console.log(this.suMenus);
+            if(this.$route.path==="/") this.isAdd=true;
         },
         methods:{
             handleSelect(val){

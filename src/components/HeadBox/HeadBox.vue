@@ -3,7 +3,7 @@
         <div class="left-menu">
             <div class="logo">logo</div>
             <div class="nav">
-                <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                <el-menu :default-active="$route.path" router class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-menu-item v-for="(nav, index) in navs" :index="nav.url" :key="index">{{nav.name}}</el-menu-item>
 <!--                    <el-submenu index="2">-->
 <!--                        <template slot="title">我的工作台</template>-->
@@ -33,7 +33,6 @@
         data(){
             return {
                 navs:Nav,
-                activeIndex:"/"
             }
         },
         methods:{
