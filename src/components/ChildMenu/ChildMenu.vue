@@ -10,6 +10,7 @@
             >{{submenu.name}}</el-menu-item>
             <el-submenu v-else :index="menu.url" v-for="(menu, index) in suMenus" :key="index" :id="menu.id">
                 <template slot="title">{{menu.name}}</template>
+                <el-menu-item v-for="(childItem, childIndex) in menu.childs" :index="childItem.url" :key="index">{{childItem.name}}</el-menu-item>
             </el-submenu>
         </el-menu>
         <div v-if="isAdd" class="addmenu-box">
@@ -72,9 +73,9 @@
             height:42px;
             line-height:42px;
         }
-        .el-submenu__title{
-            background-color:rgba(0, 0, 0, 0.4);
-        }
+        /*.el-submenu__title{*/
+        /*    background-color:rgba(0, 0, 0, 0.4);*/
+        /*}*/
         .el-menu-item{
             /*background-color:rgba(0, 0, 0, 0.2);*/
             margin-bottom:1px;
@@ -86,7 +87,7 @@
         .el-menu-item:not(.is-disabled):hover,
         .is-active{
             color:#fff;
-            background-color:rgba(0, 0, 0, 0.3);
+            background-color:rgba(0, 0, 0, 0.2);
         }
         .el-menu{
             background-color:transparent;

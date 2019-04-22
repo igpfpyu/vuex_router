@@ -1,7 +1,7 @@
 <template>
     <el-container>
         <child-menu :suMenus="suMenus"
-                    :isChildType="false"
+                    :isChildType="true"
                     @handleSelect="handleSelect"
                     @addFastNav="addFastNav"
         ></child-menu>

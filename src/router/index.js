@@ -22,7 +22,9 @@ const routes=[
                 ]
             },{
                 path: "/lesson", name: 'lesson', component: Lesson, children: [
-                    {path: "/lesson", name: "lessonItem", component: LessonList},
+                    {
+                        path: "/lesson", name: "lessonItem", component: LessonList
+                    },
                 ]
             }
         ]

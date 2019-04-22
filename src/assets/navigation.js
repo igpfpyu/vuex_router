@@ -1,11 +1,14 @@
 export default [
     {
-        url:"/", name:"管理首页", id:1010, childs:[
+        id:1010, url:"/", name:"管理首页", childs:[
             {id:"1011", name:'在线课程1', url:'/'},
         ]
     }, {
-        url:"/lesson", name:"在线课程", id:1020, childs:[
-            {id:"1021", name:'课程列表', url:'/lesson'},
+        id:1020, url:"/lesson", name:"在线课程", childs:[
+            {id:"1021", name:'在线课程', url:'/lesson', childs:[
+                    {id:'10210', name:"课程列表", url:"/lesson"}
+                ]
+            },
         ]
     }, {
         url:"/facem", name:"面授培训", id:1030, childs:[
