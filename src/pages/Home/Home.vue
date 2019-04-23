@@ -11,7 +11,7 @@
         <el-dialog
                 title="添加快捷菜单"
                 :visible.sync="dialogVisible"
-                width="40%"
+                class="dialog"
                 :before-close="handleClose">
             <div>
                 <el-transfer :titles="titles"
@@ -122,5 +122,14 @@
     .left-menu{
         width:160px;
     }
-
+</style>
+<style lang="less">
+    .el-dialog{
+        min-width:540px;
+        .el-dialog__body{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
 </style>
