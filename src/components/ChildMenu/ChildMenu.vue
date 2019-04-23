@@ -77,7 +77,7 @@
         /*    background-color:rgba(0, 0, 0, 0.4);*/
         /*}*/
         .el-menu-item{
-            /*background-color:rgba(0, 0, 0, 0.2);*/
+            background-color:rgba(0, 0, 0, 0.2);
             margin-bottom:1px;
         }
         .el-menu-item:not(.is-disabled):focus,

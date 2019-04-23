@@ -6,7 +6,7 @@ import Index from '@/pages/index'
 
 //首页
 import Home from '../pages/Home/Home'
-import IndexItem from '@/pages/IndexItem/IndexItem'
+import IndexItem from '@/pages/Home/IndexItem/IndexItem'
 
 //在线课程
 import Lesson from '../pages/Lesson/Lesson/Lesson'
