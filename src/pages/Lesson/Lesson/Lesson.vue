@@ -29,6 +29,10 @@
             handleSelect(){
                 console.log('a')
             }
+        },
+        created() {
+            console.log(this.$store.state.LessonX.lesson);
+            console.log(this.$store);
         }
     }
 </script>
