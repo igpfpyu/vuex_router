@@ -3,13 +3,13 @@ export default {
         lesson:12
     },
     getters:{
-      isLesson(state){
-          if(state.lesson===112){
-              return true;
-          }else{
-              return false;
-          }
-      }
+        isLesson(state){
+            if(state.lesson===112){
+                return true;
+            }else{
+                return false;
+            }
+        }
     },
     mutations:{
         lesson(state){
@@ -21,8 +21,7 @@ export default {
     },
     actions:{
         itemClick({commit}, num){
-            console.log('aaaaaa')
-            commit('itemClick', num)
+            commit('itemClick', num.payload)
 
         }
     }

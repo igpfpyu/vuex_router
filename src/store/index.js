@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 Vue.use(Vuex);
-import LessonX from '../pages/Lesson/Lesson/Lesson_x'
+import LessonModules from './LessonModules/LessonModules'
 export default new Vuex.Store({
     modules:{
-        LessonX,
+        LessonX : LessonModules,
     }
 })

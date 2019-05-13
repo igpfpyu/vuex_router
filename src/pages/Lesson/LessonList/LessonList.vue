@@ -7,21 +7,27 @@
 </template>
 
 <script>
-    import {mapState} from 'vuex';
+    import {mapState,mapActions} from 'vuex';
     export default {
         name: "LessonList",
         computed:{
-            ...mapState({
-                lesson
-            })
+            // ...mapState({
+            //     isLesson
+            // })
         },
         methods:{
-            itemClick(){
-                this.$store.dispatch('itemClick', 30)
-            }
+            ...mapActions({
+                itemClick:{
+                    type:'itemClick',
+                    payload:20
+                }
+            })
+            // itemClick(){
+            //     this.$store.dispatch('itemClick', 20);
+            // }
         },
         created() {
-            this.$store.dispatch('itemClick', 20);
+            // this.$store.dispatch('itemClick', 20);
         }
     }
 </script>
