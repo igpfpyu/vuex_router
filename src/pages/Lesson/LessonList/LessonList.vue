@@ -1,25 +1,28 @@
 <template>
     <div class="out-padding">
         <p>LessonList</p>
-        <p v-if="$store.getters.isLesson">isLesson</p>
+        <p v-if="isLesson">isLesson</p>
         <el-button type="success" @click="itemClick">修改</el-button>
     </div>
 </template>
 
 <script>
-    import {mapState,mapActions} from 'vuex';
+    import {mapState,mapGetters, mapActions} from 'vuex';
     export default {
         name: "LessonList",
         computed:{
             // ...mapState({
             //     isLesson
-            // })
+            // }),
+            ...mapGetters([
+                'isLesson'
+                ])
         },
         methods:{
             ...mapActions({
                 itemClick:{
                     type:'itemClick',
-                    payload:20
+                    payload:30
                 }
             })
             // itemClick(){
