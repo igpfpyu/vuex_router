@@ -4,6 +4,11 @@ Vue.use(Vuex);
 // - 课程列表
 import Lesson from './LessonModules/lesson'
 const modules={
-    Lesson
+        ...Lesson
 }
-export default new Vuex.Store(...modules)
+export default new Vuex.Store({
+    modules:{
+        modules
+    }
+
+})
