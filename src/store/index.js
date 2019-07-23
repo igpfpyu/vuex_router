@@ -6,6 +6,4 @@ import Lesson from './LessonModules/lesson'
 const modules={
     Lesson
 }
-export default new Vuex.Store({
-    modules
-})
+export default new Vuex.Store(...modules)
