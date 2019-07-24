@@ -1,0 +1,1 @@
+export const INDEX_ITEM_CLICK="INDEX_ITEM_CLICK";

@@ -42,7 +42,6 @@
             }
         },
         created() {
-            console.log(Nav);
         }
     }
 </script>

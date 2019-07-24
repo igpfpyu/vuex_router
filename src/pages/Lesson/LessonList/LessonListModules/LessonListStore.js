@@ -2,9 +2,10 @@ import mutations from './mutations'
 import actions from './actions'
 import getters from './getters'
 const state={
-    lesson:12
+    les:12
 }
 export default {
+    namespaced:true,
     state,
     getters,
     mutations,

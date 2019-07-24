@@ -1,6 +1,6 @@
 export default {
     isLesson(state){
-        if(state.lesson===12){
+        if(state.les===12){
             return true;
         }else{
             return false;
