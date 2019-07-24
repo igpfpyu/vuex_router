@@ -13,8 +13,8 @@
         computed:{
             ...mapGetters('HomeStore',["polar"])
         },
-        create(){
-           console.log(this.polar);
+        created(){
+           this.Global.isNull('aaaa')
         },
         data(){
             return {
