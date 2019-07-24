@@ -17,15 +17,15 @@
             }
         },
         computed:{
-            ...mapState('lesson',{
+            ...mapState('LessonStore',{
                 les:state=>state.les
             }),
-            ...mapGetters('lesson',[
+            ...mapGetters('LessonStore',[
                 'isLesson'
             ])
         },
         methods:{
-            ...mapActions('lesson',{
+            ...mapActions('LessonStore',{
                 itemClick:{
                     type:'itemClick',
                     payload:30

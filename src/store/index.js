@@ -7,8 +7,8 @@ import HomeStore from '../pages/Home/HomeStore';
 import LessonStore from '@/pages/Lesson/LessonStore';
 console.log(HomeStore)
 const modules= {
-    home:HomeStore,
-   lesson:LessonStore
+   HomeStore,
+   LessonStore
 }
 export default new Vuex.Store({
     modules:{

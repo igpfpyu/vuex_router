@@ -11,7 +11,7 @@
     export default {
         name: "IndexItem",
         computed:{
-            ...mapGetters('home',["polar"])
+            ...mapGetters('HomeStore',["polar"])
         },
         create(){
            console.log(this.polar);
