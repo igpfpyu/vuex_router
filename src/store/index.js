@@ -2,9 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 Vue.use(Vuex);
 // - 课程列表
-import Lesson from './LessonModules/lesson'
+import LessonListStore from '@/pages/Lesson/LessonList/LessonListModules/LessonListStore'
 const modules={
-        ...Lesson
+        ...LessonListStore
 }
 export default new Vuex.Store({
     modules:{
