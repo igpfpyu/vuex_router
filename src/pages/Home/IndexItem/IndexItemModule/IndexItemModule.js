@@ -1,6 +1,3 @@
-import IndexItemGetter from './IndexItemGetter';
-import IndexItemAction from './IndexItemAction';
-import IndexItemMutation from './IndexItemMutation';
 const state={
     polar: {
         series: {
@@ -43,7 +40,12 @@ const state={
 export default {
     namespaced:true,
     state:state,
-    getters:IndexItemGetter,
-    actions:IndexItemAction,
-    mutations:IndexItemMutation
+    getters:{
+        polar(state){
+            console.log(state);
+            return state.polar
+        }
+    },
+    actions:{},
+    mutations:{}
 }
