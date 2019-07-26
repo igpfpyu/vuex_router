@@ -8,6 +8,7 @@ import Network  from './platform/utils/Network/Network'
 import store from './store'
 import './assets/default.less'
 import * as GlobalUtils from './platform/utils/GlobalUtils';
+import './platform/utils/GlobalFilter';
 // import 'element-ui/lib/theme-chalk/index.css'
 import IEcharts from 'vue-echarts'
 Vue.config.productionTip = false;

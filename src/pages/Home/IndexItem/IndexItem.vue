@@ -1,5 +1,8 @@
 <template>
     <div class="out-padding">
+        <div>{{123131 | num}}</div>
+        <div>{{"1231231" | nums}}</div>
+        <div>{{'11' | isShowFilter}}</div>
         <div class="box">
             <Chart :options="polar" style="height:400px;"></Chart>
         </div>
@@ -10,6 +13,12 @@
     import {mapGetters} from 'vuex';
     export default {
         name: "IndexItem",
+        data(){
+            return {
+                isShow:true,
+                message:212121,
+            }
+        },
         computed:{
             ...mapGetters('HomeStore',["polar"])
         },
@@ -17,11 +26,6 @@
            console.log(this.Global.isNull('{}'));
            console.log(this.Global.isMobile('15801913352'))
         },
-        data(){
-            return {
-
-            }
-        }
     }
 </script>
 
