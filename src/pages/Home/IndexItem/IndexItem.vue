@@ -14,7 +14,8 @@
             ...mapGetters('HomeStore',["polar"])
         },
         created(){
-           this.Global.isNull('aaaa')
+           console.log(this.Global.isNull('{}'));
+           console.log(this.Global.isMobile('15801913352'))
         },
         data(){
             return {
